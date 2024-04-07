@@ -1,0 +1,44 @@
+trigger:
+- main
+
+pool:
+  name: COMP367LAB4
+
+variables:
+  buildConfiguration: 'Release'
+  buildPlatform: 'any cpu'
+  projectName: 'YourProjectName'
+  packageVersion: '1.0.0' 
+
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.x' # Ensure this matches the version used by your project
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --no-restore'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/*.csproj'
+    versioningScheme: 'byEnvVar'
+    versionEnvVar: 'packageVersion'
+    buildProperties: 'PackageId=$(projectName);Configuration=$(buildConfiguration);Platform=$(buildPlatform)'
+    outputDir: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'NuGetPackage'
+    publishLocation: 'Container'
