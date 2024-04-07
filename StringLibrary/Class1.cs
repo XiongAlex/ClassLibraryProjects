@@ -1,4 +1,4 @@
-﻿namespace UtilityLibraries;
+﻿namespace StringLibrary;
 
 public static class StringLibrary
 {

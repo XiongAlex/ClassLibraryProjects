@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringLibrary", "StringLibrary\StringLibrary.csproj", "{3460982A-12D0-4AFC-B2E4-3A6B84BE3C77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StringLibrary", "StringLibrary\StringLibrary.csproj", "{3460982A-12D0-4AFC-B2E4-3A6B84BE3C77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGetConsumer", "NuGetConsumer\NuGetConsumer.csproj", "{64AE86FF-2797-490C-BC19-35539F61DDDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{3460982A-12D0-4AFC-B2E4-3A6B84BE3C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3460982A-12D0-4AFC-B2E4-3A6B84BE3C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3460982A-12D0-4AFC-B2E4-3A6B84BE3C77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64AE86FF-2797-490C-BC19-35539F61DDDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64AE86FF-2797-490C-BC19-35539F61DDDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64AE86FF-2797-490C-BC19-35539F61DDDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64AE86FF-2797-490C-BC19-35539F61DDDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
