@@ -47,6 +47,6 @@ steps:
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    publishVstsFeed: 'ClassLibraryProjects' 
+    publishVstsFeed: ClassLibraryProjects 
     versioningScheme: 'byEnvVar'
     versionEnvVar: 'packageVersion'
