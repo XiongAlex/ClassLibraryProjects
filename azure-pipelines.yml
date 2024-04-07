@@ -7,14 +7,14 @@ pool:
 variables:
   buildConfiguration: 'Release'
   buildPlatform: 'any cpu'
-  projectName: 'YourProjectName'
+  projectName: 'ClassLibraryProjects' 
   packageVersion: '1.0.0' 
 
 steps:
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
-    version: '8.x' # Ensure this matches the version used by your project
+    version: '8.x' 
     installationPath: $(Agent.ToolsDirectory)/dotnet
 
 - task: DotNetCoreCLI@2
@@ -42,3 +42,11 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'NuGetPackage'
     publishLocation: 'Container'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    publishVstsFeed: 'ClassLibraryProjects' 
+    versioningScheme: 'byEnvVar'
+    versionEnvVar: 'packageVersion'
